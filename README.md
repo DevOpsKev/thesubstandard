@@ -40,7 +40,8 @@ The site is a single HTML file with zero build dependencies. It fetches RSS feed
 
 ```
 thesubstandard/
-├── index.html          # The entire site — single file, no build step
+├── index.html          # The site — loads substitutions.js
+├── substitutions.js    # All word swap rules (edit this to add/remove subs)
 ├── worker.js           # Cloudflare Worker RSS proxy (deployed separately)
 ├── CNAME               # GitHub Pages custom domain config
 └── README.md
