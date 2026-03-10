@@ -73,6 +73,7 @@ const DEFAULT_SUBS = [
   ["ceasefire",                          "timeout"],
   ["spokesperson",                       "designated fibber"],
   ["Trump",                              "Commander in Cheese"],
+  ["Iran",                               "Iran/Iraq/the sandy one"],
 
   // ── UK-Specific ───────────────────────────────────────────
   ["Downing Street",                     "the head prefect's bedsit"],
@@ -97,6 +98,7 @@ const DEFAULT_SUBS = [
   ["HS2",                                "that train thing"],
   ["Thames Water",                       "Thames Sewage"],
   ["King",                               "Nepo Baby"],
+  ["UK",                                 "Bankrupt Britain"],
 
   // ── Tech & Business ───────────────────────────────────────
   ["AI",                                 "Slop Generator"],
