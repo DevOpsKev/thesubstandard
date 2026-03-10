@@ -76,6 +76,8 @@ const DEFAULT_SUBS = [
   ["Iran",                               "Greenland"],
   ["Iranians",                           "Greenlanders"],
   ["Iranian",                            "Greenlandic"],
+  ["Tehran",                             "Nuuk"],
+  ["Karaj",                              "Sisimiut"],
 
   // ── UK-Specific ───────────────────────────────────────────
   ["Downing Street",                     "the head prefect's bedsit"],
