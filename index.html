@@ -202,7 +202,7 @@
   }
   .read-original:hover { color: var(--red); }
 
-  .sub { background: linear-gradient(180deg, transparent 60%, var(--highlight) 60%); font-style: italic; font-weight: 600; }
+  .sub { background: linear-gradient(180deg, transparent 72%, var(--highlight) 72%, var(--highlight) 95%, transparent 95%); font-style: italic; font-weight: 600; }
 
   /* ── Empty / Error ── */
   .empty { text-align: center; padding: 60px 24px; color: var(--faded); }
@@ -606,27 +606,28 @@ function render() {
     }
     html += '</div>';
 
-    // Controls
-    html += '<div class="controls">';
-    html += `<button class="btn btn-primary" id="fetch-btn" ${state.loading ? 'disabled' : ''}>
-      ${state.loading ? '\u23F3 Fetching ' + feedInfo.label + ' news...' : hasFetched ? '\u21BB Refresh ' + feedInfo.label + ' news' : feedInfo.emoji + ' Fetch ' + feedInfo.label + ' news'}
-    </button>`;
-    if (hasFetched) {
-      html += `<button class="btn btn-toggle ${state.showOriginal ? 'on' : ''}" id="toggle-btn">
-        ${state.showOriginal ? '\u{1F453} Showing originals' : '\u{1F50D} Show originals'}
-      </button>`;
+    // Controls - only show when we have articles
+    if (hasFetched || state.loading) {
+      html += '<div class="controls">';
+      if (hasFetched) {
+        html += `<button class="btn btn-primary" id="fetch-btn" ${state.loading ? 'disabled' : ''}>
+          ${state.loading ? '\u23F3 Refreshing...' : '\u21BB Refresh'}
+        </button>`;
+        html += `<button class="btn btn-toggle ${state.showOriginal ? 'on' : ''}" id="toggle-btn">
+          ${state.showOriginal ? '\u{1F453} Showing originals' : '\u{1F50D} Show originals'}
+        </button>`;
+      }
+      html += '</div>';
     }
-    html += '</div>';
 
     if (state.error) {
       html += `<div class="error">${state.error}</div>`;
     }
 
-    if (!hasFetched && !state.loading) {
+    if (!hasFetched && state.loading) {
       html += `<div class="empty">
-        <div class="icon">${feedInfo.emoji}</div>
-        <p>Hit the button to fetch <strong>${feedInfo.label}</strong> news and put it through the mangler.
-        <br><br><span class="hint">(${state.subs.length} substitution rules loaded and ready to ruin journalism)</span></p>
+        <div class="icon">\u23F3</div>
+        <p>Fetching <strong>${feedInfo.label}</strong> news...</p>
       </div>`;
     }
 
@@ -830,9 +831,15 @@ function bindEvents() {
     btn.addEventListener('click', () => { state.tab = btn.dataset.tab; render(); });
   });
 
-  // Feed nav
+  // Feed nav - auto-fetch if not cached
   document.querySelectorAll('[data-feed]').forEach(btn => {
-    btn.addEventListener('click', () => { state.feed = btn.dataset.feed; render(); });
+    btn.addEventListener('click', () => {
+      state.feed = btn.dataset.feed;
+      render();
+      if (!(state.articlesByFeed[state.feed] || []).length && !state.loading) {
+        doFetch();
+      }
+    });
   });
 
   // Fetch button
@@ -887,8 +894,9 @@ async function doFetch() {
   }
 }
 
-// Initial render
+// Initial render and auto-fetch UK news
 render();
+doFetch();
 </script>
 </body>
 </html>
