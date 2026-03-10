@@ -66,7 +66,7 @@
   .feed-nav { display: flex; justify-content: center; gap: 0; border-bottom: 1px solid var(--light); margin-bottom: 0; padding: 0; }
   .feed-nav button {
     padding: 8px 18px; background: none; border: none; border-bottom: 2px solid transparent;
-    font: 400 11px/1 var(--mono); letter-spacing: 1px; text-transform: uppercase;
+    font: 400 13px/1 var(--mono); letter-spacing: 2px; text-transform: uppercase;
     cursor: pointer; color: var(--faded); margin-bottom: -1px; transition: all 0.15s;
   }
   .feed-nav button.active { color: var(--ink); font-weight: 700; border-bottom-color: var(--red); }
@@ -602,7 +602,7 @@ function render() {
     for (const [key, feed] of Object.entries(FEEDS)) {
       const isActive = state.feed === key;
       const cached = (state.articlesByFeed[key] || []).length > 0;
-      html += `<button data-feed="${key}" class="${isActive ? 'active' : ''}">${feed.emoji} ${feed.label}${cached && !isActive ? '<span class="dot"></span>' : ''}</button>`;
+      html += `<button data-feed="${key}" class="${isActive ? 'active' : ''}">${feed.label}${cached && !isActive ? '<span class="dot"></span>' : ''}</button>`;
     }
     html += '</div>';
 
@@ -611,10 +611,10 @@ function render() {
       html += '<div class="controls">';
       if (hasFetched) {
         html += `<button class="btn btn-primary" id="fetch-btn" ${state.loading ? 'disabled' : ''}>
-          ${state.loading ? '\u23F3 Refreshing...' : '\u21BB Refresh'}
+          ${state.loading ? 'Refreshing...' : 'Refresh'}
         </button>`;
         html += `<button class="btn btn-toggle ${state.showOriginal ? 'on' : ''}" id="toggle-btn">
-          ${state.showOriginal ? '\u{1F453} Showing originals' : '\u{1F50D} Show originals'}
+          ${state.showOriginal ? 'Showing originals' : 'Show originals'}
         </button>`;
       }
       html += '</div>';
@@ -626,7 +626,6 @@ function render() {
 
     if (!hasFetched && state.loading) {
       html += `<div class="empty">
-        <div class="icon">\u23F3</div>
         <p>Fetching <strong>${feedInfo.label}</strong> news...</p>
       </div>`;
     }
@@ -635,7 +634,7 @@ function render() {
       html += '<div class="articles">';
 
       // Section header
-      html += `<div class="section-header">${feedInfo.emoji} ${feedInfo.label} Edition</div>`;
+      html += `<div class="section-header">${feedInfo.label} Edition</div>`;
 
       // Helpers
       const srcLine = (a) => a.link
@@ -775,7 +774,7 @@ function render() {
       html += '</div>'; // .articles
 
       html += `<div class="footer">
-        ${feedInfo.emoji} ${feedInfo.label} edition \u00B7 ${articles.length} stories \u00B7 ${state.subs.length} rules active \u00B7 Mangled words are <span class="sub">highlighted</span> \u00B7 <a href="https://xkcd.com/1288/" target="_blank" rel="noopener" style="color:inherit">Inspired by XKCD</a>
+        ${feedInfo.label} edition \u00B7 ${articles.length} stories \u00B7 ${state.subs.length} rules active \u00B7 Mangled words are <span class="sub">highlighted</span> \u00B7 <a href="https://xkcd.com/1288/" target="_blank" rel="noopener" style="color:inherit">Inspired by XKCD</a>
       </div>`;
     }
   }
@@ -900,3 +899,4 @@ doFetch();
 </script>
 </body>
 </html>
+
