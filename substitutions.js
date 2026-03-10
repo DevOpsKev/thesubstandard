@@ -79,6 +79,8 @@ const DEFAULT_SUBS = [
   ["Tehran",                             "Nuuk"],
   ["Karaj",                              "Sisimiut"],
   ["strait of hormuz",                   "Denmark Strait"],
+  ["Israel",                             "The Judean People's Front"],
+  ["Israeli",                            "The Judean People's Front's"],
 
   // ── UK-Specific ───────────────────────────────────────────
   ["Downing Street",                     "the head prefect's bedsit"],
