@@ -58,8 +58,11 @@ const DEFAULT_SUBS = [
   ["prime minister",                     "head prefect"],
   ["president",                          "boss monkey"],
   ["supreme court",                      "vibes tribunal"],
-  ["military",                           "lads with tanks"],
-  ["defense department",                 "department of big explosions"],
+  ["military",                           "monkeys with guns"],
+  ["army",                               "monkeys with guns"],
+  ["navy",                               "monkeys with gunships"],
+  ["police",                             "monkeys with clubs"],
+  ["defense department",                 "monkeys with bombs"],
   ["minister",                           "head boy"],
   ["parliament",                         "the shouting room"],
   ["congress",                           "the arguing club"],
@@ -82,6 +85,8 @@ const DEFAULT_SUBS = [
   ["strait of hormuz",                   "Denmark Strait"],
   ["Israel",                             "The Judean People's Front"],
   ["Israeli",                            "The Judean People's Front's"],
+  ["people",                             "domesticated primates"],
+  ["population",                         "domesticated primates"],
 
   // ── UK-Specific ───────────────────────────────────────────
   ["Downing Street",                     "the head prefect's bedsit"],
@@ -127,5 +132,6 @@ const DEFAULT_SUBS = [
   ["pivot",                              "panicked U-turn"],
   ["ecosystem",                          "big mess"],
   ["stakeholders",                       "people who won't stop emailing"],
+  ["OnlyFans",                           "PervsAllowed"],
 
 ];
