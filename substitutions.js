@@ -40,8 +40,8 @@ const DEFAULT_SUBS = [
   ["trade",                              "pokemon"],
   ["facebook",                           "Myspace"],
   ["google",                             "Bing"],
-  ["twitter",                            "the Shire's noticeboard"],
-  ["x (formerly twitter)",               "the Shire's noticeboard"],
+  ["twitter",                            "Der Angriff"],
+  ["x (formerly twitter)",               "Der Angriff"],
 
   // ── Politics & Government ─────────────────────────────────
   ["the white house",                    "the bouncy castle"],
