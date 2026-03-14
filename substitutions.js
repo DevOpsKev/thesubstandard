@@ -88,7 +88,7 @@ const DEFAULT_SUBS = [
   ["google",                             "Bing"],
   ["twitter",                            "Der Angriff"],
   ["x (formerly twitter)",               "Der Angriff"],
-  ["Middle East",                    "Hunger Games"],
+  ["Middle East",                        "Hunger Games"],
 
   // ── UK-Specific ───────────────────────────────────────────
   ["Downing Street",                     "the head prefect's bedsit"],
